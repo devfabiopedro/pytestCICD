@@ -1,0 +1,47 @@
+[tool.poetry]
+name = "pytestcicd"
+version = "0.1.0"
+description = "Estudo cd CI-CD usando o Pytest"
+authors = ["Fábio S. Pedro"]
+license = "GNU General Public Licence"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.2"
+pytest-cov = "^5.0.0"
+taskipy = "^1.13.0"
+ruff = "^0.6.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.lint]
+preview = true
+select = ['I', 'F', 'E', 'W', 'PL', 'PT']
+
+[tool.ruff.format]
+preview = true
+quote-style = 'single'
+
+[tool.pytest.ini_options]
+pythonpath = "."
+addopts = '-p no:warnings'
+markers = [
+    'integracao: Só os testes de integração',
+    'unitario: Só os testes unitarios'
+]
+
+
+[tool.taskipy.tasks]
+lint = {cmd='ruff check . && ruff check ./tests --diff', help='Linter'}
+format = {cmd='ruff check . --fix && ruff format ./tests', help='Formata o código'}
+test = {cmd='pytest -s -x --cov=app -vv', help='- Executas os testes unitários.'}
+post-test = {cmd='coverage html && python coverage-report.py', help='- Exibe relatório de cobertura.'}
