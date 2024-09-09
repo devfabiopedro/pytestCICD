@@ -13,6 +13,7 @@ Criar um Workflow de CI/CD no Github Actions de forma a permitir ao observador a
 | Poetry 1.8.3 | [🔗Link]('https://pypi.org/project/poetry/')
 | Pytest 8.3.2 | [🔗Link]('https://pypi.org/project/pytest/')
 | Pytest-cov 5.0.0 | [🔗Link]('https://pypi.org/project/pytest-cov/')
+| Pytest-asyncio 0.24.0 | [🔗Link]('https://pypi.org/project/pytest-asyncio/')
 | Ruff 0.6.3 | [🔗Link]('https://pypi.org/project/ruff/')
 | Taskipy 1.13.0 | [🔗Link]('https://pypi.org/project/taskipy/')
 
